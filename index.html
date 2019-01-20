@@ -13,125 +13,431 @@
 <body>
 <h1 class="main-title">Lotto... Lotto is Ruthless...</h1>
 <div class="main-wrap">
-    <div class="roulette-wrap">
-        <h3 class="sub-title">룰렛</h3>
-        <table class="roulette-table">
+    <div class="left-wrap">
+        <div class="roulette-wrap">
+            <h3 class="sub-title">룰렛</h3>
+            <table class="roulette-table">
+                <thead>
+                <tr>
+                    <td>
+                        동시에 돌릴 게임 수
+                        <select name=""
+                                id="running-game-count">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5" selected>5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="btn-start">시작</button>
+                        <button id="btn-stop">정지</button>
+                        <button id="btn-reset">초기화</button>
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>현재<span>111</span>회차</th>
+                    <th>당첨번호 : <span>1 2 3 4 5 6 + 보너스 : 40</span></th>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h3>진행 현황</h3>
+                    </td>
+                </tr>
+                <tr id="running-slot-1">
+                    <td>
+                        1번 슬롯
+                    </td>
+                    <td>
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input type="checkbox" checked>(자동)
+                    </td>
+                </tr>
+                <tr id="running-slot-2">
+                    <td>
+                        2번 슬롯
+                    </td>
+                    <td>
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input type="checkbox" checked>(자동)
+                    </td>
+                </tr>
+                <tr id="running-slot-3">
+                    <td>
+                        3번 슬롯
+                    </td>
+                    <td>
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input type="checkbox" checked>(자동)
+                    </td>
+                </tr>
+                <tr id="running-slot-4">
+                    <td>
+                        4번 슬롯
+                    </td>
+                    <td>
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input type="checkbox" checked>(자동)
+                    </td>
+                </tr>
+                <tr id="running-slot-5">
+                    <td>
+                        5번 슬롯
+                    </td>
+                    <td>
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input type="checkbox" checked>(자동)
+                    </td>
+                </tr>
+                <tr id="running-slot-5">
+                    <td>
+                        5번 슬롯
+                    </td>
+                    <td>
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input type="checkbox" checked>(자동)
+                    </td>
+                </tr>
+                <tr id="running-slot-5">
+                    <td>
+                        5번 슬롯
+                    </td>
+                    <td>
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input type="checkbox" checked>(자동)
+                    </td>
+                </tr>
+                <tr id="running-slot-5">
+                    <td>
+                        5번 슬롯
+                    </td>
+                    <td>
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input type="checkbox" checked>(자동)
+                    </td>
+                </tr>
+                <tr id="running-slot-5">
+                    <td>
+                        5번 슬롯
+                    </td>
+                    <td>
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input type="checkbox" checked>(자동)
+                    </td>
+                </tr>
+                <tr id="running-slot-5">
+                    <td>
+                        5번 슬롯
+                    </td>
+                    <td>
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input class="inner-slot" type="number" value="00">
+                        <input type="checkbox" checked>(자동)
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--end of roulette wrap-->
+        <div class="total-wrap">
+            <h3 class="sub-title">종합</h3>
+            <table class="total-table">
+                <thead></thead>
+                <tbody>
+                <tr>
+                    <td>총 시도 횟수</td>
+                    <td><span class="number">3,000</span><span style="padding-right: 0px;" class="unit">회</span></td>
+                </tr>
+                <tr>
+                    <td>총 사용 금액</td>
+                    <td><span class="number">3,000,000</span><span style="padding-right: 0px;" class="unit">원</span></td>
+                </tr>
+                <tr>
+                    <td>총 소득 금액</td>
+                    <td><span class="number">5,000</span><span style="padding-right: 0px;" class="unit">원</span></td>
+                </tr>
+                <tr>
+                    <td>손익</td>
+                    <td><span class="number">-2,900,000</span><span style="padding-right: 0px;" class="unit">원</span></td>
+                </tr>
+                <tr>
+                    <td>소요 시간</td>
+                    <td>
+                        <span class="number">1</span><span style="padding-right: 0px;" class="unit">년</span>
+                        <span class="number">3</span><span style="padding-right: 0px;" class="unit">개월</span>
+                        <span class="number">14</span><span style="padding-right: 0px;" class="unit">일</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h3 class="sub-title">. . .</h3>
+        </div>
+    </div>
+    <!--end of left wrap-->
+
+    <div class="result-wrap">
+        <h3 class="sub-title">결과</h3>
+        <table class="result-table">
             <thead>
-            <tr>
-                <td>
-                    동시에 돌릴 게임 수
-                    <select name=""
-                        id="running-game-count">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5" selected>5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-                </td>
-                <td>
-                    <button id="btn-start">시작</button>
-                    <button id="btn-stop">정지</button>
-                    <button id="btn-reset">초기화</button>
-                </td>
-            </tr>
             </thead>
             <tbody>
             <tr>
-                <th>현재<span>111</span>회차</th>
-                <th>당첨번호 : <span>1 2 3 4 5 6 + 보너스 : 40</span></th>
+                <td rowspan="3">1등</td>
+                <td class="notice">
+                    당첨 횟수
+                </td>
+                <td>
+                    <span>0</span><span style="padding-right: 0px;">회</span><br/>
+                </td>
             </tr>
             <tr>
-                <td colspan="2">
-                    <h3>진행 현황</h3>
+                <td class="notice">
+                    당첨 백분율
+                </td>
+                <td>
+                    <span>0</span><span style="padding-right: 0px;">%</span><br/>
                 </td>
             </tr>
-            <tr id="running-slot-1">
-                <td>
-                    1번 슬롯
+            <tr>
+                <td class="notice">
+                    이론상 확률
                 </td>
                 <td>
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input type="checkbox" checked>(자동)
+                    <span>0.000012</span><span style="padding-right: 0px;">%</span><br/>
                 </td>
             </tr>
-            <tr id="running-slot-2">
-                <td>
-                    1번 슬롯
+            <tr>
+                <td rowspan="3">2등</td>
+                <td class="notice">
+                    당첨 횟수
                 </td>
                 <td>
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input type="checkbox" checked>(자동)
+                    <span>0</span><span style="padding-right: 0px;">회</span><br/>
                 </td>
             </tr>
-            <tr id="running-slot-3">
-                <td>
-                    1번 슬롯
+            <tr>
+                <td class="notice">
+                    당첨 백분율
                 </td>
                 <td>
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input type="checkbox" checked>(자동)
+                    <span>0</span><span style="padding-right: 0px;">%</span><br/>
                 </td>
             </tr>
-            <tr id="running-slot-4">
-                <td>
-                    1번 슬롯
+            <tr>
+                <td class="notice">
+                    이론상 확률
                 </td>
                 <td>
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input type="checkbox" checked>(자동)
+                    <span>0.000073</span><span style="padding-right: 0px;">%</span><br/>
                 </td>
             </tr>
-            <tr id="running-slot-5">
-                <td>
-                    1번 슬롯
+            <tr>
+                <td rowspan="3">3등</td>
+                <td class="notice">
+                    당첨 횟수
                 </td>
                 <td>
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input class="inner-slot" type="number" value="00">
-                    <input type="checkbox" checked>(자동)
+                    <span>0</span><span style="padding-right: 0px;">회</span><br/>
+                </td>
+            </tr>
+            <tr>
+                <td class="notice">
+                    당첨 백분율
+                </td>
+                <td>
+                    <span>0</span><span style="padding-right: 0px;">%</span><br/>
+                </td>
+            </tr>
+            <tr>
+                <td class="notice">
+                    이론상 확률
+                </td>
+                <td>
+                    <span>0.002799</span><span style="padding-right: 0px;">%</span><br/>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="3">4등</td>
+                <td class="notice">
+                    당첨 횟수
+                </td>
+                <td>
+                    <span>0</span><span style="padding-right: 0px;">회</span><br/>
+                </td>
+            </tr>
+            <tr>
+                <td class="notice">
+                    당첨 백분율
+                </td>
+                <td>
+                    <span>0</span><span style="padding-right: 0px;">%</span><br/>
+                </td>
+            </tr>
+            <tr>
+                <td class="notice">
+                    이론상 확률
+                </td>
+                <td>
+                    <span>0.136425</span><span style="padding-right: 0px;">%</span><br/>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="3">5등</td>
+                <td class="notice">
+                    당첨 횟수
+                </td>
+                <td>
+                    <span>0</span><span style="padding-right: 0px;">회</span><br/>
+                </td>
+            </tr>
+            <tr>
+                <td class="notice">
+                    당첨 백분율
+                </td>
+                <td>
+                    <span>0</span><span style="padding-right: 0px;">%</span><br/>
+                </td>
+            </tr>
+            <tr>
+                <td class="notice">
+                    이론상 확률
+                </td>
+                <td>
+                    <span>2.222222</span><span style="padding-right: 0px;">%</span><br/>
                 </td>
             </tr>
             </tbody>
-
+        </table>
+        <h3 class="sub-title">결과 2</h3>
+        <table class="fun-table">
+            <thead></thead>
+            <tbody>
+            <tr>
+                <td>치킨</td>
+                <td>0마리</td>
+            </tr>
+            </tbody>
         </table>
     </div>
-    <div class="result-wrap">
 
-    </div>
 </div>
 </body>
 </html>
 <style>
+    .fun-table tr :first-child{
+        width: 206px;
+        height: 24px;
+    }
+    .fun-table{
+        width: 100%;
+    }
+    .notice{
+        text-align: left;
+        padding-left: 5px;
+    }
+
+    .result-table{
+        width: 100%;
+    }
+
+    .result-table tr :first-child{
+        width: 100px;
+        height: 24px;
+    }
+
+    .result-table tr td span{
+        padding-right: 10px;
+    }
+
+    .result-table tr :last-child{
+        text-align: right;
+        padding-right: 20px;
+    }
+
+    .total-table{
+        width: 100%;
+    }
+    .total-table tr :first-child{
+        width: 212px;
+    }
+
+    .total-table tr :last-child{
+        text-align: right;
+        padding-right: 20px;
+    }
+
+    .total-table tr td span{
+        padding-right: 10px;
+    }
+
+    .left-wrap{
+        float: left;
+        height: 100%;
+        width: 588px;
+    }
+    .total-wrap{
+        width: 588px;
+        border: 1px solid black;
+        float: left;
+        height: 498px;
+    }
     .inner-slot{
         width: 35px;
     }
@@ -171,13 +477,13 @@
     .roulette-wrap {
         border: 1px solid black;
         width: 588px;
-        height: 1000px;
         float: left;
+        height: 500px;
     }
 
     .result-wrap {
         border: 1px solid black;
-        width: 588px;
+        width: 590px;
         height: 1000px;
         float: left;
     }
