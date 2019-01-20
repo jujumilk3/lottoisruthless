@@ -1,0 +1,2 @@
+# lottoisruthless
+Lotto... is ruthless
