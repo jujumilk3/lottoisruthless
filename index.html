@@ -587,13 +587,14 @@
         var totalSpendedDay = dateCalculator(totalRunnedCount * 7);
         var profit = calcProfit();
 
-        jQuery('#total-runned-count').text(totalRunnedCount);
         for (var i = 0; i < 6; i++){
             jQuery('#grade-count-' + i).text(numberFormat(results[i]));
             var gradeRate = (results[i] / totalTriedCount) * 100;
             jQuery('#grade-rate-' + i).text(gradeRate.toFixed(6));
             jQuery('#winningnumber-' + i).text(winningNumbers[i]);
         }
+
+        jQuery('#total-runned-count').text(numberFormat(totalRunnedCount));
         jQuery('#winningnumber-b').text(bonusNumber);
         jQuery('#total-tried-count').text(numberFormat(totalTriedCount));
         jQuery('#total-spended-money').text(numberFormat(totalSpendedMoney));
