@@ -149,19 +149,19 @@
                 </tr>
                 <tr>
                     <td>총 소득 금액</td>
-                    <td><span class="number">5,000</span><span style="padding-right: 0px;" class="unit">원</span></td>
+                    <td><span class="number" id="profit">0</span><span style="padding-right: 0px;" class="unit">원</span></td>
                 </tr>
                 <tr>
                     <td>손익</td>
-                    <td><span class="number">-2,900,000</span><span style="padding-right: 0px;" class="unit">원</span>
+                    <td><span class="number" id="pnl">0</span><span style="padding-right: 0px;" class="unit">원</span>
                     </td>
                 </tr>
                 <tr>
                     <td>소요 시간</td>
                     <td>
-                        <span class="number">1</span><span style="padding-right: 0px;" class="unit">년</span>
-                        <span class="number">3</span><span style="padding-right: 0px;" class="unit">개월</span>
-                        <span class="number">14</span><span style="padding-right: 0px;" class="unit">일</span>
+                        <input type="number" value="00" style="width: 30px;" id="spended-year">년
+                        <input type="number" value="00" style="width: 30px;" id="spended-month">개월
+                        <input type="number" value="00" style="width: 30px; padding-right: 0px;" id="spended-day">일
                     </td>
                 </tr>
                 </tbody>
@@ -464,6 +464,27 @@
 
 </style>
 <script>
+    //전역변수 초기화
+    var roullette = null;
+    var totalRunnedCount = 0;
+    var totalTriedCount = 0;
+    var profitAndLoss = 0;
+    var results = {
+        0: 0,
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0
+    };
+    var resultMoney = {
+        0 : 0,
+        1 : 2000000000,
+        2 : 50000000,
+        3 : 1500000,
+        4 : 50000,
+        5 : 5000
+    }
 
     //선언
     class WinningNumber {
@@ -536,41 +557,6 @@
     }
 
 
-    //실행
-    var results = {
-        0: 0,
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0
-    };
-
-    var resultMoney = {
-        0 : 0,
-        1 : 2000000000,
-        2 : 50000000,
-        3 : 1500000,
-        4 : 50000,
-        5 : 5000
-    }
-
-    var winningNumbers = randNumberMaker(7);
-    var bonusNumberIndex = getRandNumBetween(0, winningNumbers.length - 1);
-    var bonusNumber = winningNumbers[bonusNumberIndex];
-    winningNumbers.splice(bonusNumberIndex, 1);
-    var winningNumber = new WinningNumber(winningNumbers, bonusNumber);
-
-    // for (var i = 0; i < 100000; i++) {
-    //     results[rollTheRoullette(winningNumber)]++;
-    // }
-    // console.log(results);
-
-
-    var roullette = null;
-    var totalRunnedCount = 0;
-    var totalTriedCount = 0;
-
     function on() {
         jQuery('#btn-switch').text('정지');
         currentCountRunningGame = jQuery('#running-game-count').val();
@@ -597,15 +583,49 @@
     function updateBoard(winningNumber) {
         var {winningNumbers} = winningNumber.getElements();
         var {bonusNumber} = winningNumber.getElements();
+        var totalSpendedMoney = totalTriedCount * 1000;
+        var totalSpendedDay = dateCalculator(totalRunnedCount * 7);
+        var profit = calcProfit();
 
         jQuery('#total-runned-count').text(totalRunnedCount);
         for (var i = 0; i < 6; i++){
             jQuery('#grade-count-' + i).text(results[i]);
+            var gradeRate = (results[i] / totalTriedCount) * 100;
+            jQuery('#grade-rate-' + i).text(gradeRate.toFixed(6));
             jQuery('#winningnumber-' + i).text(winningNumbers[i]);
         }
         jQuery('#winningnumber-b').text(bonusNumber);
         jQuery('#total-tried-count').text(totalTriedCount);
-        jQuery('#total-spended-money').text(totalTriedCount * 1000);
+        jQuery('#total-spended-money').text(totalSpendedMoney);
+        jQuery('#profit').text(profit);
+        jQuery('#pnl').text(profit - totalSpendedMoney);
+
+    }
+
+    var spendedYear = 0;
+    var spendedMonth = 0;
+    var spendedDay = 0;
+
+    function dateCalculator(daySpended) {
+        spendedYear = parseInt(daySpended / 365);
+        var restDate = daySpended % 365;
+        if(restDate){
+            spendedMonth = parseInt(restDate / 30);
+            restDate = restDate % 30;
+        }
+        spendedDay = restDate ? restDate : 1;
+
+        jQuery('#spended-year').val(spendedYear);
+        jQuery('#spended-month').val(spendedMonth);
+        jQuery('#spended-day').val(spendedDay);
+    }
+
+    function calcProfit(){
+        var moneyCalculated = 0;
+        for (var i = 0; i < 6; i++){
+            moneyCalculated += results[i] * resultMoney[i];
+        }
+        return moneyCalculated;
     }
 
     function off() {
