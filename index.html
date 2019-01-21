@@ -589,16 +589,16 @@
 
         jQuery('#total-runned-count').text(totalRunnedCount);
         for (var i = 0; i < 6; i++){
-            jQuery('#grade-count-' + i).text(results[i]);
+            jQuery('#grade-count-' + i).text(numberFormat(results[i]));
             var gradeRate = (results[i] / totalTriedCount) * 100;
             jQuery('#grade-rate-' + i).text(gradeRate.toFixed(6));
             jQuery('#winningnumber-' + i).text(winningNumbers[i]);
         }
         jQuery('#winningnumber-b').text(bonusNumber);
-        jQuery('#total-tried-count').text(totalTriedCount);
-        jQuery('#total-spended-money').text(totalSpendedMoney);
-        jQuery('#profit').text(profit);
-        jQuery('#pnl').text(profit - totalSpendedMoney);
+        jQuery('#total-tried-count').text(numberFormat(totalTriedCount));
+        jQuery('#total-spended-money').text(numberFormat(totalSpendedMoney));
+        jQuery('#profit').text(numberFormat(profit));
+        jQuery('#pnl').text(numberFormat(profit - totalSpendedMoney));
 
     }
 
@@ -636,6 +636,10 @@
 
     var running = false;
     var currentCountRunningGame = 0;
+
+    function numberFormat(inputNumber) {
+        return inputNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 
     //jQueryStart
     $(document).ready(function () {
