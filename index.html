@@ -7,9 +7,11 @@
     <meta http-equiv="X-UA-Compatible"
           content="ie=edge">
     <title>로또 시뮬레이터 | 로또 확률 계산기</title>
-    <script type="text/javascript"
-            src="./lib/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./lib/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./lib/bootstrap.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132902338-1"></script>
+    <link rel="stylesheet" href="./lib/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/bootstrap-theme.min.css">
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -41,6 +43,26 @@
                             <option value="8">8</option>
                             <option value="9">9</option>
                             <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
                         </select>
                     </td>
                     <td>
@@ -138,45 +160,9 @@
                 </tr>
                 </tbody>
             </table>
-        </div>
-        <!--end of roulette wrap-->
-        <div class="total-wrap">
-            <h3 class="sub-title">종합</h3>
-            <table class="total-table">
-                <thead></thead>
-                <tbody>
-                <tr>
-                    <td>총 시도 횟수</td>
-                    <td><span class="number" id="total-tried-count">0</span><span style="padding-right: 0px;" class="unit">회</span></td>
-                </tr>
-                <tr>
-                    <td>총 사용 금액</td>
-                    <td><span class="number" id="total-spended-money">0</span><span style="padding-right: 0px;" class="unit">원</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>총 소득 금액</td>
-                    <td><span class="number" id="profit">0</span><span style="padding-right: 0px;" class="unit">원</span></td>
-                </tr>
-                <tr>
-                    <td>손익</td>
-                    <td><span class="number" id="pnl">0</span><span style="padding-right: 0px;" class="unit">원</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>소요 시간</td>
-                    <td>
-                        <input type="number" value="00" style="width: 50px;" id="spended-year">년
-                        <input type="number" value="00" style="width: 30px;" id="spended-month">개월
-                        <input type="number" value="00" style="width: 30px; padding-right: 0px;" id="spended-day">일
-                    </td>
-                </tr>
-                </tbody>
-            </table>
             <div>
-                <i>(※1등 20억, 2등 5천만원, 3등 150만원, 4등 5만원, 5등 5천원으로 계산됩니다.)</i>
+                <i>(※동시에 돌리는 게임 수가 많을 수록 연산이 느려집니다.)</i>
             </div>
-            <h3 class="sub-title">. . .</h3>
         </div>
     </div>
     <!--end of left wrap-->
@@ -340,13 +326,62 @@
 
             </tbody>
         </table>
-        <h3 class="sub-title">결과 2</h3>
-        <table class="fun-table">
+        <h3 class="sub-title">종합</h3>
+        <table class="total-table">
             <thead></thead>
             <tbody>
             <tr>
-                <td>치킨</td>
-                <td>0마리</td>
+                <td>총 시도 횟수</td>
+                <td><span class="number" id="total-tried-count">0</span><span style="padding-right: 0px;" class="unit">회</span></td>
+            </tr>
+            <tr>
+                <td>총 사용 금액</td>
+                <td><span class="number" id="total-spended-money">0</span><span style="padding-right: 0px;" class="unit">원</span>
+                </td>
+            </tr>
+            <tr>
+                <td>총 소득 금액</td>
+                <td><span class="number" id="profit">0</span><span style="padding-right: 0px;" class="unit">원</span></td>
+            </tr>
+            <tr>
+                <td>손익</td>
+                <td><span class="number" id="pnl">0</span><span style="padding-right: 0px;" class="unit">원</span>
+                </td>
+            </tr>
+            <tr>
+                <td>소요 시간</td>
+                <td>
+                    <input type="number" value="00" style="width: 40px;" id="spended-year">년
+                    <input type="number" value="00" style="width: 30px;" id="spended-month">개월
+                    <input type="number" value="00" style="width: 30px; padding-right: 0px;" id="spended-day">일
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div>
+            <i>(※1등 20억, 2등 5천만원, 3등 150만원, 4등 5만원, 5등 5천원으로 계산됩니다.)</i>
+        </div>
+        <h3 class="sub-title">. . .</h3>
+        <table class="total-table">
+            <thead></thead>
+            <tbody>
+            <tr>
+                <td>치킨 (2만 원)</td>
+                <td><span class="number" id="chiken-count">0</span><span style="padding-right: 0px;" class="unit">마리</span></td>
+            </tr>
+            <tr>
+                <td>최신형 컴퓨터 (200만 원)</td>
+                <td><span class="number" id="computer-counter">0</span><span style="padding-right: 0px;" class="unit">대</span>
+                </td>
+            </tr>
+            <tr>
+                <td>대형 승용차 (3000만 원)</td>
+                <td><span class="number" id="car-counter">0</span><span style="padding-right: 0px;" class="unit">대</span></td>
+            </tr>
+            <tr>
+                <td>아파트 (2억 원)</td>
+                <td><span class="number" id="apart-counter">0</span><span style="padding-right: 0px;" class="unit">채</span>
+                </td>
             </tr>
             </tbody>
         </table>
@@ -482,7 +517,7 @@
         border: 1px solid black;
         width: 588px;
         float: left;
-        height: 500px;
+        height: 100%;
     }
 
     .result-wrap {
@@ -605,7 +640,6 @@
                 }
                 results[lottoWinChecker(winningNumber, currentManagedSelectedNumber)]++;
             }
-            console.log(results);
             updateBoard(winningNumber);
         }, 1);
     }
@@ -616,6 +650,11 @@
         var totalSpendedMoney = totalTriedCount * 1000;
         var totalSpendedDay = dateCalculator(totalRunnedCount * 7);
         var profit = calcProfit();
+
+        var chickenCount = parseInt(totalSpendedMoney / 20000);
+        var computerCount = parseInt(totalSpendedMoney / 2000000);
+        var carCount = parseInt(totalSpendedMoney / 30000000);
+        var apartCount = parseInt(totalSpendedMoney / 200000000);
 
         for (var i = 0; i < 6; i++){
             jQuery('#grade-count-' + i).text(numberFormat(results[i]));
@@ -630,6 +669,10 @@
         jQuery('#total-spended-money').text(numberFormat(totalSpendedMoney));
         jQuery('#profit').text(numberFormat(profit));
         jQuery('#pnl').text(numberFormat(profit - totalSpendedMoney));
+        jQuery('#chiken-count').text(numberFormat(chickenCount));
+        jQuery('#computer-counter').text(numberFormat(computerCount));
+        jQuery('#car-counter').text(numberFormat(carCount));
+        jQuery('#apart-counter').text(numberFormat(apartCount));
 
 
     }
