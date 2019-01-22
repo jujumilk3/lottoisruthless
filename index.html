@@ -21,6 +21,8 @@
     </script>
 </head>
 <body>
+<div id="fixed-alert-space" style="position: fixed; top:0; left: 0; display: block;">
+</div>
 <h1 class="main-title">Lotto... Lotto is Ruthless...</h1>
 <div class="main-wrap">
     <div class="left-wrap">
@@ -72,8 +74,8 @@
                 </tr>
                 </thead>
                 <tr>
-                    <th style="width: 209px;">현재 <span id="total-runned-count">0</span>회차</th>
-                    <th>당첨번호 :
+                    <th style="width: 209px; text-align: center;">현재 <span id="total-runned-count">0</span>회차</th>
+                    <th style="text-align: center;">당첨번호 :
                         <span id="winningnumber-0">00</span>,
                         <span id="winningnumber-1">00</span>,
                         <span id="winningnumber-2">00</span>,
@@ -351,9 +353,9 @@
             <tr>
                 <td>소요 시간</td>
                 <td>
-                    <input type="number" value="00" style="width: 40px;" id="spended-year">년
-                    <input type="number" value="00" style="width: 30px;" id="spended-month">개월
-                    <input type="number" value="00" style="width: 30px; padding-right: 0px;" id="spended-day">일
+                    <input type="number" value="00" style="width: 50px;" id="spended-year">년
+                    <input type="number" value="00" style="width: 35px;" id="spended-month">개월
+                    <input type="number" value="00" style="width: 35px; padding-right: 0px;" id="spended-day">일
                 </td>
             </tr>
             </tbody>
@@ -551,6 +553,14 @@
         5 : 5000
     }
 
+    var spendedYear = 0;
+    var spendedMonth = 0;
+    var spendedDay = 0;
+
+    var running = false;
+    var currentCountRunningGame = 0;
+
+
     //선언
     class WinningNumber {
         constructor(winningNumbers, bonusNumber) {
@@ -621,6 +631,8 @@
         return Math.floor((Math.random() * (n2 - n1 + 1)) + n1);
     }
 
+    var firstFlag = 0;
+    var secondFlag = 0;
 
     function on() {
         jQuery('#btn-switch').text('정지');
@@ -634,11 +646,28 @@
             totalRunnedCount++;
             for(var i = 0; i < currentCountRunningGame ; i ++){
                 totalTriedCount++;
-                var currentManagedSelectedNumber = randNumberMaker(6);
-                for(var j = 0; j < 6; j++){
-                    jQuery('#running-slot-'+(i+1)).find('.inner-slot.'+ (j+1)).val(currentManagedSelectedNumber[j]);
+                var currentRowAutoChecker = jQuery('#running-slot-'+(i+1)).find('.auto-checkbox').is(':checked');
+                if(currentRowAutoChecker){
+                    var currentManagedSelectedNumber = randNumberMaker(6);
+                    for(var j = 0; j < 6; j++){
+                        jQuery('#running-slot-'+(i+1)).find('.inner-slot.'+ (j+1)).val(currentManagedSelectedNumber[j]);
+                    }
+                }else{
+                    var currentManagedSelectedNumber = [];
+                    for(var j = 0; j < 6; j++){
+                        currentManagedSelectedNumber.push(parseInt(jQuery('#running-slot-'+(i+1)).find('.inner-slot.'+ (j+1)).val()));
+                    }
                 }
-                results[lottoWinChecker(winningNumber, currentManagedSelectedNumber)]++;
+
+                var lottoWinResult = lottoWinChecker(winningNumber, currentManagedSelectedNumber);
+                results[lottoWinResult]++;
+                if((lottoWinResult === 1) && (firstFlag < results[1])){
+                    popupMaker('축하드립니다!', '1등에 당첨되었습니다!');
+                    firstFlag++;
+                }else if((lottoWinResult === 2) && (secondFlag < results[2])){
+                    alert('2등에 당첨됐습니다. 믿을 수가 없네요.');
+                    secondFlag++;
+                }
             }
             updateBoard(winningNumber);
         }, 1);
@@ -674,12 +703,18 @@
         jQuery('#car-counter').text(numberFormat(carCount));
         jQuery('#apart-counter').text(numberFormat(apartCount));
 
+        if(totalSpendedMoney > 10000000 && popupLevel === 1){
+            popupMaker('많은 돈을 소모했습니다.', '천 만 원... 큰 돈입니다.');
+            popupLevel++;
+        }else if(totalTriedCount > 10000 && popupLevel === 3){
+            popupMaker('로또 만 장을 샀습니다.', '딱히 축하해주는 사람은 없습니다.');
+            popupLevel++;
+        }
 
     }
 
-    var spendedYear = 0;
-    var spendedMonth = 0;
-    var spendedDay = 0;
+    var popupLevel  = 0;
+
 
     function dateCalculator(daySpended) {
         spendedYear = parseInt(daySpended / 365);
@@ -693,6 +728,21 @@
         jQuery('#spended-year').val(spendedYear);
         jQuery('#spended-month').val(spendedMonth);
         jQuery('#spended-day').val(spendedDay);
+
+        if(spendedYear > 10 && popupLevel === 0){
+            popupMaker('많은 시간이 지났습니다.', '로또를 시작하기 전에 아이를 낳았다면 초등학교 3학년입니다.');
+            popupLevel++;
+        }else if(spendedYear > 24 && popupLevel === 2){
+            popupMaker('또 많은 시간이 지났습니다.', '아이는 대학을 졸업했습니다.');
+            popupLevel++;
+        }else if(spendedYear > 70 && popupLevel === 4){
+            popupMaker('엄청나게 많은 시간이 지났습니다.', '성인때 로또를 시작했다면 당신은 현재 90세입니다.');
+            popupLevel++;
+        }else if(spendedYear > 100 && popupLevel === 5){
+            popupMaker('100세시대!', '라고 해도 당신이 살아있을 확률은 거의 없습니다.');
+            popupLevel++;
+        }
+
     }
 
     function calcProfit(){
@@ -708,9 +758,6 @@
         clearInterval(roullette);
     }
 
-
-    var running = false;
-    var currentCountRunningGame = 0;
 
     function numberFormat(inputNumber) {
         return inputNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -729,7 +776,7 @@
         });
 
         jQuery('#btn-reset').click(function (e) {
-            alert('u just pressed reset btn');
+            location.reload();
         });
 
 
@@ -758,5 +805,15 @@
         });
 
     });
+    function popupMaker(strong, msg){
+        var madedPopup =
+            '<div class="alert alert-info alert-dismissible" role="alert" style="display: none; opacity: 0.9;">\n' +
+            '    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="close-btn" aria-hidden="true">&times;</span></button>\n' +
+            '    <strong>' + strong + '</strong> ' + msg + '.\n' +
+            '</div>';
+        jQuery('#fixed-alert-space').append(madedPopup);
+        jQuery('.alert').fadeIn("slow", function () {
+        });
+    }
     //jQueryEnd
 </script>
