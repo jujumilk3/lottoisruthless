@@ -9,10 +9,17 @@
     <title>로또 시뮬레이터 | 로또 확률 계산기</title>
     <script type="text/javascript"
             src="./lib/jquery-3.3.1.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132902338-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-132902338-1');
+    </script>
 </head>
 <body>
-<h1 class="main-title" style="margin-bottom: 10px;">Lotto... Lotto is Ruthless...</h1>
-<h4 style="margin-top: 0px;">좋은 꿈 꿔서 로또 10만원 어치 샀는데 5등 하나 돼서 빡쳐서 만들었습니다</h4>
+<h1 class="main-title">Lotto... Lotto is Ruthless...</h1>
 <div class="main-wrap">
     <div class="left-wrap">
         <div class="roulette-wrap">
@@ -159,7 +166,7 @@
                 <tr>
                     <td>소요 시간</td>
                     <td>
-                        <input type="number" value="00" style="width: 30px;" id="spended-year">년
+                        <input type="number" value="00" style="width: 50px;" id="spended-year">년
                         <input type="number" value="00" style="width: 30px;" id="spended-month">개월
                         <input type="number" value="00" style="width: 30px; padding-right: 0px;" id="spended-day">일
                     </td>
@@ -346,7 +353,30 @@
     </div>
 
 </div>
+<script id="dsq-count-scr" src="//lotto-lotto-is-ruthless.disqus.com/count.js" async></script>
 </body>
+
+<div id="disqus_thread"></div>
+<script>
+
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://lotto-lotto-is-ruthless.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 </html>
 <style>
     .fun-table tr :first-child {
@@ -600,6 +630,7 @@
         jQuery('#total-spended-money').text(numberFormat(totalSpendedMoney));
         jQuery('#profit').text(numberFormat(profit));
         jQuery('#pnl').text(numberFormat(profit - totalSpendedMoney));
+
 
     }
 
