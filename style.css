@@ -1,0 +1,112 @@
+.fun-table tr :first-child {
+    width: 206px;
+    height: 24px;
+}
+
+.fun-table {
+    width: 100%;
+}
+
+.notice {
+    text-align: left;
+    padding-left: 5px;
+}
+
+.result-table {
+    width: 100%;
+}
+
+.result-table tr :first-child {
+    width: 100px;
+    height: 24px;
+}
+
+.result-table tr td span {
+    padding-right: 10px;
+}
+
+.result-table tr :last-child {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.total-table {
+    width: 100%;
+}
+
+.total-table tr :first-child {
+    width: 212px;
+}
+
+.total-table tr :last-child {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.total-table tr td span {
+    padding-right: 10px;
+}
+
+.left-wrap {
+    float: left;
+    height: 100%;
+    width: 588px;
+}
+
+.total-wrap {
+    width: 588px;
+    border: 1px solid black;
+    float: left;
+    height: 498px;
+}
+
+.inner-slot {
+    width: 35px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.roulette-table {
+    width: 100%;
+}
+
+.main-title {
+    font-family: 'Noto Sans CJK KR Black', sans-serif;
+    font-style: italic;
+    font-size: 60px;
+}
+
+.sub-title {
+    font-family: 'Noto Sans CJK KR Black', sans-serif;
+    font-size: 30px;
+    margin: 10px;
+}
+
+.main-wrap {
+    border: 1px solid black;
+    width: 1180px;
+    height: 1000px;
+    margin: 0 auto;
+}
+
+body {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.roulette-wrap {
+    border: 1px solid black;
+    width: 588px;
+    float: left;
+    height: 100%;
+}
+
+.result-wrap {
+    border: 1px solid black;
+    width: 590px;
+    height: 1000px;
+    float: left;
+}
